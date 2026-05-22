@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-hw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milenness/nodejs-hw.git"
+  },
+  "keywords": [],
+  "author": "Milena Karpenko <milenness06@gmai.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milenness/nodejs-hw/issues"
+  },
+  "homepage": "https://github.com/milenness/nodejs-hw#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.4.0",
+    "globals": "^17.6.0",
+    "nodemon": "^3.1.14"
+  }
+}
