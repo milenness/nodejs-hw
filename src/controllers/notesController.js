@@ -28,7 +28,6 @@ export const getNoteById = async (req, res, next) => {
 export const createNote = async (req, res, next) => {
   try {
     const newNote = await Note.create(req.body);
-
     res.status(201).json(newNote);
   } catch (error) {
     next(error);
@@ -38,7 +37,6 @@ export const createNote = async (req, res, next) => {
 export const deleteNote = async (req, res, next) => {
   try {
     const { noteId } = req.params;
-
     const deletedNote = await Note.findByIdAndDelete(noteId);
 
     if (!deletedNote) {
@@ -56,7 +54,7 @@ export const updateNote = async (req, res, next) => {
     const { noteId } = req.params;
 
     const updatedNote = await Note.findByIdAndUpdate(noteId, req.body, {
-      new: true,
+      returnDocument: 'after',
     });
 
     if (!updatedNote) {
