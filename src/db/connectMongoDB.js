@@ -8,7 +8,9 @@ export const connectMongoDB = async () => {
       throw new Error('MONGO_URL is not defined in .env file');
     }
 
-    await mongoose.connect(mongoUrl);
+    await mongoose.connect(mongoUrl, {
+      dbName: 'notes_db',
+    });
 
     console.log('✅ MongoDB connection established successfully');
   } catch (error) {
