@@ -29,10 +29,13 @@ export const getAllNotes = async (req, res, next) => {
       countQuery.where(searchFilter);
     }
 
-    const totalNotes = await countQuery;
-    const totalPages = Math.ceil(totalNotes / parsedPerPage);
 
-    const notes = await dbQuery.skip(skip).limit(parsedPerPage);
+    const [totalNotes, notes] = await Promise.all([
+      countQuery,
+      dbQuery.skip(skip).limit(parsedPerPage),
+    ]);
+
+    const totalPages = Math.ceil(totalNotes / parsedPerPage);
 
     res.status(200).json({
       page: parsedPage,
@@ -45,6 +48,7 @@ export const getAllNotes = async (req, res, next) => {
     next(error);
   }
 };
+
 
 export const getNoteById = async (req, res, next) => {
   try {
