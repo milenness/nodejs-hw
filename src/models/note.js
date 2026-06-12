@@ -6,7 +6,7 @@ const noteSchema = new Schema(
     title: {
       type: String,
       required: true,
-      trim: true, 
+      trim: true,
     },
     content: {
       type: String,
@@ -19,6 +19,11 @@ const noteSchema = new Schema(
       enum: TAGS,
       required: false,
       default: 'Todo',
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'user', 
+      required: true,
     },
   },
   {
