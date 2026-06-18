@@ -29,12 +29,15 @@
   "dependencies": {
     "bcrypt": "^6.0.0",
     "celebrate": "^15.0.3",
+    "cloudinary": "^2.10.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "handlebars": "^4.7.9",
     "http-errors": "^2.0.1",
     "mongoose": "^9.6.3",
+    "multer": "^2.2.0",
     "pino-http": "^11.0.0"
   }
 }
