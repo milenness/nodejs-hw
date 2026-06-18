@@ -7,7 +7,7 @@ import path from 'path';
 import { User } from '../models/user.js';
 import { Session } from '../models/session.js';
 import { createSession, setSessionCookies } from '../services/auth.js';
-import sendMail from '../utils/sendMail.js';
+import { sendMail } from '../utils/sendMail.js';
 
 export const registerUser = async (req, res, next) => {
   try {
