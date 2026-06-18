@@ -7,7 +7,7 @@ import path from 'path';
 import { User } from '../models/user.js';
 import { Session } from '../models/session.js';
 import { createSession, setSessionCookies } from '../services/auth.js';
-import { sendMail } from '../utils/sendMail.js';
+import { sendEmail } from '../utils/sendMail.js';
 
 export const registerUser = async (req, res, next) => {
   try {
@@ -143,15 +143,17 @@ export const requestResetEmail = async (req, res, next) => {
     const template = handlebars.compile(templateSource);
 
     const html = template({
-      name: user.email.split('@')[0],
+      name: user.username,
       url: resetUrl,
     });
+
     try {
       console.log('============= RESET URL =============');
       console.log(resetUrl);
       console.log('=====================================');
 
-      await sendMail({
+      await sendEmail({
+        from: process.env.SMTP_FROM,
         to: user.email,
         subject: 'Reset your password',
         html,
